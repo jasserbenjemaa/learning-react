@@ -3,7 +3,7 @@ Welcome to my GitHub repository where I document my journey in learning ReactJS 
 
 ## 📋 Table of Contents
 
-- [About](#about)
+- [About](https://github.com/jasserbenjemaa/learning-react/About)
 - [Goals](#goals)
 - [Projects](#projects)
 - [Resources](#resources)
