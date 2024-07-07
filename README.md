@@ -33,7 +33,7 @@ Here are some resources that have been helpful in my learning journey:
 
 - [ReactJS Official Documentation](https://reactjs.org/docs/getting-started.html)
 - [JavaScript Info](https://javascript.info/)
-- [Web Dev Simplified]([https://www.freecodecamp.org/learn/front-end-libraries/react/](https://www.youtube.com/@WebDevSimplified))
+- [Web Dev Simplified](https://www.youtube.com/@WebDevSimplified)
 
 ---
 
