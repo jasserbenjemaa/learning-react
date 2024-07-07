@@ -4,9 +4,9 @@ Welcome to my GitHub repository where I document my journey in learning ReactJS 
 ## 📋 Table of Contents
 
 - [About](#-about)
-- [Goals](#goals)
-- [Projects](#projects)
-- [Resources](#resources)
+- [Goals](#-goals)
+- [Projects](#-projects)
+- [Resources](#-resources)
 
 ## 📝 About
 
