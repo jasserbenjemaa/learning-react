@@ -4,14 +4,24 @@ import classes from "./PokemonCollection.module.css";
 const PokemonCollection = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const loaderRef = useRef(null);
 
   const fetchData = useCallback(async () => {
     if (isLoading) return;
     setIsLoading(true);
-    //fetch
-    setItems((prevItems) => [...prevItems, ...Array(10 * index)]);
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${10 * index}`
+    );
+    if (!response.ok) {
+      throw new Error("fectching new data went wrong");
+    }
+    const data = await response.json();
+    if (data.length === 0) {
+      setIsLoading(false);
+      return;
+    }
+    setItems((prevItems) => [...prevItems, ...data.results]);
     setIndex((prevIndex) => prevIndex + 1);
     setIsLoading(false);
   }, [isLoading, index]);
@@ -36,9 +46,14 @@ const PokemonCollection = () => {
     const getData = async () => {
       setIsLoading(true);
       try {
-        const response = Array(10).fill("");
-        //fetch
-        setItems(response);
+        const res = await fetch(
+          "https://pokeapi.co/api/v2/pokemon?limit=10" //&offset=10"
+        );
+        if (!res.ok) {
+          throw new Error("Something went wrong");
+        }
+        const data = await res.json();
+        setItems(data.results);
       } catch (error) {
         console.error(error);
       }
@@ -51,10 +66,12 @@ const PokemonCollection = () => {
       <div>
         <div className={classes["container"]}>
           {items.map((e, i) => (
-            <PokemonCard />
+            <PokemonCard key={i} url={e.url} />
           ))}
         </div>
-        <div ref={loaderRef}>hello</div>
+        <div className={classes["loading"]} ref={loaderRef}>
+          <div className={classes["loader"]}></div>
+        </div>
       </div>
     </>
   );

@@ -1,24 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./PokemonCard.module.css";
 import PokemonType from "./PokemonType";
 
 const PokemonCard = (props) => {
-  const sprite =
-    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png";
+  const [data, setData] = useState({});
+  useEffect(() => {
+    const fetchPokemon = async () => {
+      try {
+        const response = await fetch(props.url);
+        if (!response.ok) {
+          throw new Error("fetching pokemon data went wrong");
+        }
+        const newData = await response.json();
+        const d = {
+          id: newData.id,
+          name: newData.name,
+          types: [...newData.types].map((e) => e.type.name),
+          sprite: newData.sprites.front_default,
+        };
+        setData(d);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchPokemon();
+  }, [props.url]);
+  if (!data.id) {
+    return;
+  }
+
   return (
     <div className={classes["card"]}>
       <div className={classes["img-box"]}>
-        <img src={sprite} alt={props.name + " image"} />
+        <img src={data.sprite} alt={data.name + " image"} />
       </div>
       <div className={classes["content"]}>
         <div className={classes["detail"]}>
           <p className={classes["name"]}>
-            charmander
-            <br /> <span className={[classes["id"]]}>#004</span>
+            {data.name}
+            <br />
+            <span className={[classes["id"]]}>
+              #{data.id.toString().padStart(3, "0")}
+            </span>
           </p>
           <div className={classes["types"]}>
-            <PokemonType type="flying" />
-            <PokemonType type="fighting" />
+            {data.types.map((e) => (
+              <PokemonType type={e} key={e} />
+            ))}
           </div>
         </div>
       </div>
