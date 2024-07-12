@@ -10,6 +10,7 @@
   font-size: 11px;
   text-align: center;
 }
+
 .background-color-bug {
   background: -webkit-linear-gradient(180deg, #729f3f 50%, #729f3f 50%);
   background: -ms-linear-gradient(180deg, #729f3f 50%, #729f3f 50%);

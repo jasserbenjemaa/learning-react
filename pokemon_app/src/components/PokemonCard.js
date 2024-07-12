@@ -12,13 +12,13 @@ const PokemonCard = (props) => {
           throw new Error("fetching pokemon data went wrong");
         }
         const newData = await response.json();
-        const d = {
+        const formatedData = {
           id: newData.id,
           name: newData.name,
           types: [...newData.types].map((e) => e.type.name),
           sprite: newData.sprites.front_default,
         };
-        setData(d);
+        setData(formatedData);
       } catch (error) {
         console.log(error);
       }
