@@ -25,7 +25,7 @@ This repository is a personal log of my journey in learning ReactJS, a powerful 
 - **Description**: Developed a React-based Pokémon app that fetches and displays data from an external API, allowing users to view details of various Pokémon with seamless navigation.
 - **Challenges**: Overcame issues with asynchronous data fetching by using React's useEffect hook and implementing loading states.
 - **Learnings**: Gained skills in using React routes, fetching data with the fetch API, and managing dynamic data and state within a React application
-- **Code**: (./pokemon_app)
+- **Code**: ([Pokemon_app](https://github.com/jasserbenjemaa/learning-react/tree/main/pokemon_app))
 
 ## 📚 Resources
 
