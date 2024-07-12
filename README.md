@@ -22,10 +22,10 @@ This repository is a personal log of my journey in learning ReactJS, a powerful 
 ## 🛠 Projects
 
 ### Project 1: [Project Name]
-- **Description**: Briefly describe what this project is about.
-- **Challenges**: List any challenges you faced and how you overcame them.
-- **Learnings**: What did you learn from this project?
-- **Code**: [Link to the project folder](./project-1)
+- **Description**: Developed a React-based Pokémon app that fetches and displays data from an external API, allowing users to view details of various Pokémon with seamless navigation.
+- **Challenges**: Overcame issues with asynchronous data fetching by using React's useEffect hook and implementing loading states.
+- **Learnings**: Gained skills in using React routes, fetching data with the fetch API, and managing dynamic data and state within a React application
+- **Code**: (./pokemon_app)
 
 ## 📚 Resources
 
